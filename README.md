@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Viaje a las Estrellas 🌌
 
-## Getting Started
+Sitio web de aniversario: un viaje interactivo por el universo dedicado a Daniela.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Server Components)
+- **React 19**
+- **Tailwind CSS v4**
+- **Framer Motion v12**
+- **NASA Images API** (fondos espaciales, sin clave requerida)
+
+## Secciones
+
+| Sección | Descripción |
+|---|---|
+| Hero | Título animado con campo de estrellas |
+| Planetas (×5) | Cada planeta orbita con lunas y muestra un recuerdo con foto |
+| Razones | Grid de estrellas interactivas con partículas al hacer clic |
+| Sol | Sección final con sol animado y foto de fondo |
+
+## Desarrollo local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Assets requeridos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Fotos (`public/photos/`)
 
-## Learn More
+Coloca las fotos con estos nombres exactos:
 
-To learn more about Next.js, take a look at the following resources:
+```
+memory-1.jpg   # Recuerdo 1
+memory-2.jpg   # Recuerdo 2
+memory-3.jpg   # Recuerdo 3
+memory-4.jpg   # Recuerdo 4
+memory-5.jpg   # Recuerdo 5
+memory-6.jpg   # Foto para el fondo del Sol
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Las fotos son opcionales — si no existen, las secciones usan fondos NASA de respaldo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Audio (`public/audio/`)
 
-## Deploy on Vercel
+Coloca la canción con este nombre exacto:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+eres-mi-sol.mp3
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Sin el archivo, el botón de reproducción no tendrá audio.
+
+## Deploy en Vercel
+
+1. Importa el repositorio desde [vercel.com/new](https://vercel.com/new)
+2. Vercel detecta Next.js automáticamente — no se necesita configuración adicional
+3. Haz clic en **Deploy**
+
+> No se requieren variables de entorno. La NASA Images API es pública.
+
+## Estructura
+
+```
+app/
+├── components/
+│   ├── AudioPlayer.tsx       # Reproductor flotante de música
+│   ├── HeroSection.tsx       # Sección inicial
+│   ├── NasaBgLayer.tsx       # Capa de fondo NASA con fade-in
+│   ├── NebulaBackground.tsx  # Nebulosas dinámicas según sección
+│   ├── PlanetSection.tsx     # Sección de planeta + recuerdo
+│   ├── RocketFixed.tsx       # Cohete fijo que sube con el scroll
+│   ├── StarField.tsx         # Campo de estrellas parpadeantes
+│   ├── StarsReasons.tsx      # Grid de razones interactivas
+│   └── SunSection.tsx        # Sección final con sol animado
+├── globals.css               # Tokens de diseño + keyframes CSS
+├── layout.tsx
+└── page.tsx                  # Orquesta secciones y fetches NASA
+lib/
+└── nasa.ts                   # Cliente NASA Images API
+public/
+├── audio/                    # eres-mi-sol.mp3 (agregar manualmente)
+└── photos/                   # memory-1.jpg … memory-6.jpg
+```
