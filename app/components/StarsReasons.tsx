@@ -4,14 +4,14 @@ import { useCallback, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const REASONS = [
-  'Por tu risa que ilumina cualquier habitación',
+  'Por tu risa, que ilumina cualquier rincón del universo',
   'Por cómo me miras cuando no me doy cuenta',
-  'Por tu forma de abrazar como si el tiempo se detuviera',
-  'Por cada aventura que vivimos juntos',
-  'Por hacerme mejor persona solo con estar a mi lado',
-  'Por tu corazón tan grande y tan tuyo',
-  'Por los silencios que también son perfectos',
-  'Por elegirme una y otra vez',
+  'Por abrazar con toda el alma, como si detuvieras el tiempo',
+  'Por cada aventura que decidiste vivir conmigo',
+  'Por hacerme mejor persona con solo estar a mi lado',
+  'Por tu corazón enorme y completamente tuyo',
+  'Por los silencios que también son perfectos entre nosotros',
+  'Por elegirme cada día, una y otra vez, sin dudarlo',
 ]
 
 const BURST_COLORS = ['#fbbf24', '#f472b6', '#fde68a', '#a78bfa', '#fb923c']
@@ -53,19 +53,22 @@ export default function StarsReasons() {
       id="stars-reasons"
       className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24 gap-8"
     >
-      {/* Header */}
+      {/* Bridge text */}
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.9 }}
-        className="text-center"
+        transition={{ duration: 1.1 }}
+        className="text-center max-w-sm"
       >
-        <p className="text-snow/30 text-xs tracking-widest uppercase mb-2">estrellas · razones para amarte</p>
-        <h2 className="font-display text-gold text-3xl sm:text-4xl" style={{ textShadow: '0 0 24px rgba(251,191,36,0.55)' }}>
-          Campo de Estrellas
+        <p className="font-body text-snow/40 text-sm tracking-widest uppercase mb-4">· última parada ·</p>
+        <h2 className="font-display text-snow text-3xl sm:text-4xl leading-snug">
+          Y ahora, una parada<br />entre las estrellas...
         </h2>
-        <p className="mt-2 font-body text-snow/35 text-xs">toca cada estrella ✦</p>
+        <p className="mt-4 font-body text-gold text-base sm:text-lg leading-relaxed" style={{ textShadow: '0 0 18px rgba(251,191,36,0.4)' }}>
+          Cada una brilla con una razón para amarte.
+        </p>
+        <p className="mt-3 font-body text-snow/30 text-xs tracking-wide">toca cada estrella ✦</p>
       </motion.div>
 
       {/* Grid */}

@@ -215,8 +215,12 @@ export default function PlanetSection({
         >
           <div className="relative bg-space/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 max-w-xs w-full"
             style={{ animation: 'card-glow 3.2s ease-in-out infinite' }}>
-            <div className="flex justify-between mb-3 text-gold text-xs opacity-60">
-              <span>✦</span><span>✦</span>
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-gold text-xs opacity-60">✦</span>
+              <span className="font-body text-gold/40 text-xs tracking-widest uppercase">
+                Parada {String(planetNumber).padStart(2, '0')}
+              </span>
+              <span className="text-gold text-xs opacity-60">✦</span>
             </div>
             <Polaroid imageSrc={imageSrc} imageAlt={imageAlt} />
             <h3 className="font-display text-snow text-xl text-center mt-5">{title}</h3>

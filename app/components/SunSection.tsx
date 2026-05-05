@@ -86,8 +86,9 @@ export default function SunSection({ imageUrl }: { imageUrl?: string }) {
           transition={{ duration: 1, delay: 1.1, ease: 'easeOut' }}
           className="mt-4 font-body text-snow/70 text-base sm:text-lg max-w-sm leading-relaxed text-center"
         >
-          Como el Sol ilumina cada rincón del universo,<br />
-          tú iluminas cada rincón de mi vida.<br />
+          Hemos recorrido galaxias, planetas y constelaciones enteras —<br />
+          y al final de cada viaje siempre te encuentro a ti.<br />
+          Porque eres el centro alrededor del que todo orbita.<br />
           <span className="text-gold">Te amo infinitamente. ✦</span>
         </motion.p>
       </div>

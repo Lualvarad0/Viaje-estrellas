@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import NasaBgLayer from './NasaBgLayer'
 
-const TITLE = "Hoy quiero llevarte a un viaje especial, Daniela..."
+const TITLE = "Hoy quiero llevarte a recorrer nuestro universo, Daniela..."
 
 export default function HeroSection({ imageUrl }: { imageUrl?: string }) {
   const [displayed, setDisplayed] = useState('')
@@ -54,9 +54,10 @@ export default function HeroSection({ imageUrl }: { imageUrl?: string }) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.9 }}
-            className="mt-6 font-body text-rose-soft text-lg sm:text-xl tracking-wide"
+            className="mt-6 font-body text-snow/50 text-base sm:text-lg tracking-wide leading-relaxed"
           >
-            {/* 3 años y 2 meses de nuestro universo */}
+            Cada planeta guarda un recuerdo nuestro.<br />
+            Cada estrella, una razón para amarte.
           </motion.p>
 
           <motion.button

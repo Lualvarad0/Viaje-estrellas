@@ -26,7 +26,7 @@ const PLANETS = [
     color: '#60a5fa',
     title: 'Nuestro primer plan',
     description:
-      'Esa tarde nos arreglamos, salimos y el mundo dejó de existir. Solo éramos tú y yo, descubriendo que queríamos seguir así para siempre.',
+      'Aquella tarde el tiempo se detuvo para nosotros dos. Nos arreglamos, salimos, y en algún punto de la noche el mundo dejó de existir — solo estábamos tú y yo, descubriendo que queríamos seguir exactamente así.',
     imageSrc: localPhoto('memory-1.jpg'),
     imageAlt: 'el primer plan',
     align: 'left' as const,
@@ -38,7 +38,7 @@ const PLANETS = [
     color: '#c084fc',
     title: 'La aventura que nos unió',
     description:
-      'Subimos a ese barco y el mar nos prestó su horizonte. Ahí entendí que contigo cualquier aventura vale la pena.',
+      'El mar nos prestó su horizonte más amplio y nosotros lo llenamos de aventura. Subir a ese barco contigo fue entender que el mejor destino siempre eres tú.',
     imageSrc: localPhoto('memory-2.jpg'),
     imageAlt: 'la aventura del barco',
     align: 'right' as const,
@@ -50,7 +50,7 @@ const PLANETS = [
     color: '#60a5fa',
     title: 'Bajo el mismo cielo',
     description:
-      'Entre el viento y las piedras antiguas, tu sonrisa fue lo más hermoso del paisaje. Siempre lo será.',
+      'Entre el viento y las piedras antiguas descubrí algo que ya sabía: el paisaje más hermoso no es el lugar, sino quien lo comparte contigo. Tu sonrisa lo confirma cada vez.',
     imageSrc: localPhoto('memory-3.jpg'),
     imageAlt: 'bajo el mismo cielo',
     align: 'left' as const,
@@ -62,7 +62,7 @@ const PLANETS = [
     color: '#c084fc',
     title: 'Explorando nuestro universo',
     description:
-      'Cada lugar nuevo que visitamos juntos se convierte en parte de nuestra historia. Y con cada paso, me enamoro más.',
+      'Cada coordenada que pisamos juntos se convierte en una estrella de nuestro mapa. Y mientras más exploramos, más quiero pasarme la vida recorriendo el universo a tu lado.',
     imageSrc: localPhoto('memory-4.jpg'),
     imageAlt: 'explorando juntos',
     align: 'right' as const,
@@ -74,7 +74,7 @@ const PLANETS = [
     color: '#60a5fa',
     title: 'Los días que más te amo',
     description:
-      'No son los grandes momentos, son estos: tú, yo, la calma, la naturaleza. Contigo la vida ordinaria se vuelve extraordinaria.',
+      'No son los grandes momentos los que más recuerdo, sino estos: tú, yo, la calma y el aire libre. Contigo incluso lo más sencillo se convierte en lo más extraordinario del universo.',
     imageSrc: localPhoto('memory-5.jpg'),
     imageAlt: 'los días de calma',
     align: 'left' as const,
