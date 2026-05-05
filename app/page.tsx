@@ -1,65 +1,122 @@
-import Image from "next/image";
+import { existsSync } from 'fs'
+import path from 'path'
 
-export default function Home() {
+import { fetchNasaImage } from '@/lib/nasa'
+import StarField        from './components/StarField'
+import NebulaBackground from './components/NebulaBackground'
+import RocketFixed      from './components/RocketFixed'
+import AudioPlayer      from './components/AudioPlayer'
+import HeroSection      from './components/HeroSection'
+import PlanetSection    from './components/PlanetSection'
+import StarsReasons     from './components/StarsReasons'
+import SunSection       from './components/SunSection'
+
+/** Returns /photos/<name> only when the file exists in public/photos/. */
+function localPhoto(name: string): string | undefined {
+  return existsSync(path.join(process.cwd(), 'public', 'photos', name))
+    ? `/photos/${name}`
+    : undefined
+}
+
+const PLANETS = [
+  {
+    id: 'planet-1',
+    planetNumber: 1,
+    variant: 'blue' as const,
+    color: '#60a5fa',
+    title: 'Nuestro primer plan',
+    description:
+      'Esa tarde nos arreglamos, salimos y el mundo dejó de existir. Solo éramos tú y yo, descubriendo que queríamos seguir así para siempre.',
+    imageSrc: localPhoto('memory-1.jpg'),
+    imageAlt: 'el primer plan',
+    align: 'left' as const,
+  },
+  {
+    id: 'planet-2',
+    planetNumber: 2,
+    variant: 'purple' as const,
+    color: '#c084fc',
+    title: 'La aventura que nos unió',
+    description:
+      'Subimos a ese barco y el mar nos prestó su horizonte. Ahí entendí que contigo cualquier aventura vale la pena.',
+    imageSrc: localPhoto('memory-2.jpg'),
+    imageAlt: 'la aventura del barco',
+    align: 'right' as const,
+  },
+  {
+    id: 'planet-3',
+    planetNumber: 3,
+    variant: 'blue' as const,
+    color: '#60a5fa',
+    title: 'Bajo el mismo cielo',
+    description:
+      'Entre el viento y las piedras antiguas, tu sonrisa fue lo más hermoso del paisaje. Siempre lo será.',
+    imageSrc: localPhoto('memory-3.jpg'),
+    imageAlt: 'bajo el mismo cielo',
+    align: 'left' as const,
+  },
+  {
+    id: 'planet-4',
+    planetNumber: 4,
+    variant: 'purple' as const,
+    color: '#c084fc',
+    title: 'Explorando nuestro universo',
+    description:
+      'Cada lugar nuevo que visitamos juntos se convierte en parte de nuestra historia. Y con cada paso, me enamoro más.',
+    imageSrc: localPhoto('memory-4.jpg'),
+    imageAlt: 'explorando juntos',
+    align: 'right' as const,
+  },
+  {
+    id: 'planet-5',
+    planetNumber: 5,
+    variant: 'blue' as const,
+    color: '#60a5fa',
+    title: 'Los días que más te amo',
+    description:
+      'No son los grandes momentos, son estos: tú, yo, la calma, la naturaleza. Contigo la vida ordinaria se vuelve extraordinaria.',
+    imageSrc: localPhoto('memory-5.jpg'),
+    imageAlt: 'los días de calma',
+    align: 'left' as const,
+  },
+]
+
+export default async function Home() {
+  // NASA backgrounds para los planetas (opacionales, degradan graciosamente)
+  const [p1Img, p2Img, p3Img, p4Img, p5Img] = await Promise.all([
+    fetchNasaImage('blue nebula galaxy'),
+    fetchNasaImage('purple violet nebula space'),
+    fetchNasaImage('blue galaxy deep space'),
+    fetchNasaImage('purple nebula cosmos'),
+    fetchNasaImage('blue star cluster'),
+  ])
+
+  const planetImages = [p1Img, p2Img, p3Img, p4Img, p5Img]
+
+  // Foto de Daniela como fondo del Sol
+  const sunLocalPhoto = localPhoto('memory-6.jpg')
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="relative bg-space overflow-x-hidden">
+      {/* Capas fijas */}
+      <StarField count={280} />
+      <NebulaBackground />
+      <RocketFixed />
+      <AudioPlayer />
+
+      <HeroSection />
+
+      {PLANETS.map((planet, i) => (
+        <PlanetSection
+          key={planet.id}
+          {...planet}
+          imageUrl={planetImages[i] ?? undefined}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+      ))}
+
+      <StarsReasons />
+
+      <SunSection imageUrl={sunLocalPhoto ?? undefined} />
+    </main>
+  )
 }
