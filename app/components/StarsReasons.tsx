@@ -10,7 +10,7 @@ const REASONS = [
   'Por cada aventura que decidiste vivir conmigo',
   'Por hacerme mejor persona con solo estar a mi lado',
   'Por tu corazón enorme y completamente tuyo',
-  'Por los silencios que también son perfectos entre nosotros',
+  'Por los momentos intimos que también son perfectos entre nosotros',
   'Por elegirme cada día, una y otra vez, sin dudarlo',
 ]
 
